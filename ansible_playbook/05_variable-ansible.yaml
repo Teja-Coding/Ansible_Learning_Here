@@ -1,0 +1,13 @@
+- name: task level variable here...
+  hosts: local
+  connection: local
+  vars:
+    course: DevOps with Aws
+    duration: 10 hours
+    trainer: yuva
+  tasks:
+  - name: print the course informaiton and details
+    vars: 
+      course: devops with azur   #overriding done here 
+    ansible.builtin.debug:
+      msg: "course name:{{course}}, duration of the course is: {{duration}}, from the trainer: {{trainer}}"
