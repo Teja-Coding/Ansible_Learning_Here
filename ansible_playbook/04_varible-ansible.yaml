@@ -3,7 +3,7 @@
   connection: local # ansible is connectiong to local host here...
   vars:
     COURSE: ansible
-    DURATION: 10 here
+    DURATION: 10 hr
     TRAINER: sri yuva teja
   tasks:
   - name: print the course details and information here...
