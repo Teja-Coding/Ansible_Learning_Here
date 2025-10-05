@@ -1,5 +1,5 @@
 - name: play level varibale here need to start
-  host: local
+  hosts: local
   connections: local # ansible is connectiong to local host here...
   vars:
     COURSE: ansible
