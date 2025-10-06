@@ -1,0 +1,17 @@
+- name: lets see the variable preference...
+  hosts: local
+  connection: local
+  vars:
+    name: Hi i am play level
+  vars_files:
+  - preference_var_level.yaml
+  vars_prompt:
+  - name: name
+    prompt: What is your name?
+    private: false
+  tasks:
+  - name: testing the variable preference
+    vars:
+      name: i am from task level variable...
+    ansible.builtin.debug:
+      msg: "Name is printing: {{ name }}"
