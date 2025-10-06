@@ -11,7 +11,11 @@
     private: false
   tasks:
   - name: testing the variable preference
-    vars:
-      name: i am from task level variable...
+    # vars:
+    #   name: i am from task level variable...
     ansible.builtin.debug:
       msg: "Name is printing: {{ name }}"
+
+# 1st preference = command line arguments
+# 2nd preference = task level
+#
