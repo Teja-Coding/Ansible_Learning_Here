@@ -5,10 +5,10 @@
     name: Hi i am play level
   # vars_files:
   # - preference_var_level.yaml
-  vars_prompt:
-  - name: name
-    prompt: What is your name?
-    private: false
+  # vars_prompt:
+  # - name: name
+  #   prompt: What is your name?
+  #   private: false
   tasks:
   - name: testing the variable preference
     # vars:
@@ -19,3 +19,4 @@
 # 1st preference = command line arguments
 # 2nd preference = task level
 # 3rd preference = files level
+# 4th preference = prompt level
