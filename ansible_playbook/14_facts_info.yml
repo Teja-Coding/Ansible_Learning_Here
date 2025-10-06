@@ -1,13 +1,14 @@
 - name: check the facts
   hosts: local
   connection: local
+  become: yes
 
   tasks:
   - name: install nginx if redhat
     ansible.builtin.dnf:
       name: nginx
       state: latest
-    when: ansible_os_family == "Redhat" # use ansible_ while refering the facts...
+    when: ansible_os_family == "RedHat" # use ansible_ while refering the facts...
   - name: intall nginx if Debian
     ansible.builtin.apt:
       name: nginx
