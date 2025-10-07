@@ -1,15 +1,23 @@
 - name: Creating and checking the user....
   hosts: local
   connection: local
-  become: yes
+  become: yes   # Run tasks with sudo privileges (needed for user management)
+
   tasks:
   - name: check user exist or not
+    # The 'command' module runs a system command (without using a shell)
+    # Here, we are checking if the user 'roboshop' exists using 'id roboshop'
     ansible.builtin.command: id roboshop
-    register: user_output
-    ignore_errors: true
+    register: user_output   # Store the command result in 'user_output'
+    ignore_errors: true     # Prevent playbook failure if the user doesn't exist
+
   - name: print the user output 
+    # Print the stored 'user_output' details to see what the previous command returned
     ansible.builtin.debug:
-      msg: "{{user_output}}"
+      msg: "{{ user_output }}"
+
   - name: create the user
+    # This task creates the user 'roboshop' only if the previous command failed
+    # (i.e., if user_output.rc != 0 means 'id roboshop' command failed → user not found)
     ansible.builtin.command: useradd roboshop
-    when: user_output.rc != 0
+    when: user_output.rc != 0   # Condition to create user only when not existing
