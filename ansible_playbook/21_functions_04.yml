@@ -1,13 +1,26 @@
 - name: converting list into map
   hosts: local
   connection: local
-  #here is my list
-  listTags:
-  - key: Application
-    value: payments
-  - key: Environment
-    value: dev
+
+  vars:
+    # Here is my list
+    listTags:
+      - key: Application
+        value: payments
+      - key: Environment
+        value: dev
+
   tasks:
   - name: here we can convert list into map
     ansible.builtin.debug:
-      msg: "tag map: {{listTags | items2dist}}"
+      # The 'items2dict' filter converts a list of key-value pairs
+      # (like [{'key': 'A', 'value': 'B'}, ...])
+      # into a dictionary/map (like {'A': 'B', ...}).
+      #
+      # Example:
+      #   Input:  [{'key': 'Application', 'value': 'payments'}, {'key': 'Environment', 'value': 'dev'}]
+      #   Output: {'Application': 'payments', 'Environment': 'dev'}
+      #
+      # In simple words:
+      #   It changes a list of key/value items back into a dictionary.
+      msg: "tag map: {{ listTags | items2dict }}"
