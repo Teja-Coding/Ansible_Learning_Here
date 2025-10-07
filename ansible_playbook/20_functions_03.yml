@@ -1,10 +1,29 @@
 - name: learning about the dict2items
   hosts: local
   connection: local
-  tags:
-    Applcation: payments
-    Enviroment: dev
+
+  vars:
+    # Define a dictionary (key-value pairs) here instead of using 'tags'
+    tags:
+      Application: payments
+      Environment: dev
+
   tasks:
   - name: convert map to list here
     ansible.builtin.debug:
-      msg: "tags are: {{tags | dict2items}}"
+      # The 'dict2items' filter converts a dictionary into a list of key-value pairs.
+      #
+      # Example:
+      #   tags = { "Application": "payments", "Environment": "dev" }
+      #
+      #   {{ tags | dict2items }}
+      #
+      # Output:
+      #   [
+      #     {"key": "Application", "value": "payments"},
+      #     {"key": "Environment", "value": "dev"}
+      #   ]
+      #
+      # 👉 In simple words:
+      # It turns your dictionary into a list that is easy to loop through.
+      msg: "tags are: {{ tags | dict2items }}"
