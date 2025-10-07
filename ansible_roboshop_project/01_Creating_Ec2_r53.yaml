@@ -7,10 +7,10 @@
     zone_id: "Z01877457DKZDKQFO78G" # replace with your zone id...
     domain_name: "fineshit.shop"    # replace with your domain name here ...
     instance:
-    - mongodb
-    # - redis
-    # - mysql
-    # - rabbitmq
+    - server1
+    - server2
+    - server3
+    - server4
   tasks:
   - name: create ec2 instance...
     amazon.aws.ec2_instance:
