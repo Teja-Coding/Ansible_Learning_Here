@@ -8,6 +8,7 @@
     domain_name: "fineshit.shop"    # replace with your domain name here ....
     instance:
     - mongodb
+    - redis
   tasks:
   - name: create ec2 instance...
     amazon.aws.ec2_instance:
