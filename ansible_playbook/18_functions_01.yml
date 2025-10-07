@@ -4,4 +4,17 @@
   tasks:
   - name: default variable
     ansible.builtin.debug:
+      # The 'default' filter in Ansible is used to provide a fallback value
+      # when a variable is undefined or empty.
+      #
+      # Syntax:
+      #   {{ variable | default('fallback_value') }}
+      #
+      # Explanation:
+      # - If 'value' is defined, Ansible will display its actual value.
+      # - If 'value' is NOT defined, Ansible will display 'value is not defined here'.
+      #
+      # Example:
+      #   - If value = "World" → Output: Hello, World
+      #   - If value is undefined → Output: Hello, value is not defined here
       msg: "Hello, {{ value | default('value is not defined here') }}"

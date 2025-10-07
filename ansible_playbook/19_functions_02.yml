@@ -1,0 +1,33 @@
+- name: learning about the split filter
+  hosts: local
+  connection: local
+  vars:
+    # Here we define a string containing multiple values separated by commas
+    technologies: DevOps, Linux, Shell, Ansible
+
+  tasks:
+  - name: split filter testing here
+    ansible.builtin.debug:
+      # The 'split' filter in Ansible is used to split a string into a list
+      # based on a specified delimiter.
+      #
+      # Syntax:
+      #   {{ string_variable | split('delimiter') }}
+      #
+      # Explanation:
+      # - It takes a string and breaks it into multiple elements wherever it finds the delimiter.
+      # - The output is a list of individual string items.
+      #
+      # Example:
+      #   technologies = "DevOps, Linux, Shell, Ansible"
+      #   {{ technologies | split(',') }}
+      #   → ['DevOps', ' Linux', ' Shell', ' Ansible']
+      #
+      # Note:
+      # - Spaces remain after commas unless you trim them manually.
+      #   You can use 'map' and 'trim' filters to clean up the spaces:
+      #   {{ technologies | split(',') | map('trim') | list }}
+      #
+      # Output (with trim):
+      #   ['DevOps', 'Linux', 'Shell', 'Ansible']
+      msg: "technologies here to learning: {{ technologies | split(',') }}"
