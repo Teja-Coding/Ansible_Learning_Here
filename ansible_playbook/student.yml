@@ -1,0 +1,42 @@
+students:
+  - name: Teja
+    dob: 2002-04-15
+    age: 23
+    address:
+      door_no: 12-34
+      street: MG Road
+      city: Hyderabad
+      pin: 500001
+      type: Home
+    skills:
+      - Java
+      - DevOps
+      - Cloud
+
+  - name: Priya
+    dob: 2003-07-21
+    age: 22
+    address:
+      door_no: 45-89
+      street: Park Avenue
+      city: Chennai
+      pin: 600002
+      type: Hostel
+    skills:
+      - Python
+      - AWS
+      - Ansible
+
+  - name: Kiran
+    dob: 2001-12-10
+    age: 24
+    address:
+      door_no: 78-12
+      street: Beach Road
+      city: Vizag
+      pin: 530003
+      type: Home
+    skills:
+      - Linux
+      - Docker
+      - Kubernetes
