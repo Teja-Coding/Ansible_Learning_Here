@@ -1,0 +1,12 @@
+- name: learning about the command module
+  hosts: local
+  connection: local
+
+  tasks:
+  - name: redirect the output
+    ansible.builtin.command: ls -ltr > /tmp/output.txt   # error here but ansible do not proceed 
+    register: redirect_output
+    ignore_errors: true
+  - name: pirnt the redirect output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
