@@ -1,0 +1,14 @@
+- name: check the given ip address is valid are note..
+  hosts: local
+  connection: local
+  vars:
+    ip_to_check_valid: "192.168.1.10"
+    ip_to_check_invalid: "192.168.1.300"
+  tasks:
+  - name: check the ip address valid are note by using ipaddr
+    ansible.builtin.debug:
+      msg: "{{ ip_to_check_valid }} is valid: {{ ip_to_check_valid | ipaddr }}"
+  - name: Validate an invalid IPv4 address
+    ansible.builtin.debug:
+       msg: "{{ ip_to_check_invalid }} is valid: {{ ip_to_check_invalid | ipaddr }}"
+
