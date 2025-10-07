@@ -1,0 +1,10 @@
+- name: learning about the dict2items
+  hosts: local
+  connection: local
+  tags:
+    Applcation: payments
+    Enviroment: dev
+  tasks:
+  - name: convert map to list here
+    ansible.builtin.debug:
+      msg: "tags are: {{tags | dict2items}}"
