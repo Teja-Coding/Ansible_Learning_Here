@@ -1,0 +1,12 @@
+- name: learing about the lower and upper changes
+  hosts: local
+  connection: local
+  vars:
+    firstName: "Yuva Teja Manikanta"
+  tasks:
+  - name: convert to upper changes
+    ansible.builtin.debug:
+      msg: "here is my first name: {{ firstName | upper }}"
+  - name: convert to lower changes
+    ansible.builtin.debug:
+      msg: "here is my first name: {{ firstName | lower }}"
