@@ -1,0 +1,22 @@
+- name: learning about the shell module
+  hosts: local
+  connection: local
+
+  tasks:
+  - name: grep for root
+    # The 'shell' module allows you to run any shell command on the target host.
+    # Here, we are reading the /etc/passwd file and searching for the word 'root'.
+    ansible.builtin.shell: cat /etc/passwd | grep root
+    # 'register' saves the result of the command into a variable called 'shell_output'
+    register: shell_output
+  
+  - name: print the shell_output
+    # The 'debug' module is used to print variables or messages
+    ansible.builtin.debug:
+      # Here we print the whole 'shell_output' dictionary
+      # It contains:
+      # - stdout: the actual output of the command
+      # - stderr: any error messages
+      # - rc: return code (0 = success)
+      # - changed: whether the task made changes
+      msg: "{{ shell_output }}"
