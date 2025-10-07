@@ -1,4 +1,4 @@
-- name: learning functions here
+- name: learning functions in ansible
   hosts: local
   connection: local
   tasks:
