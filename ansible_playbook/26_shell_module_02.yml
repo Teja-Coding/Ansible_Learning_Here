@@ -1,0 +1,11 @@
+- name: learning about the command module
+  hosts: local
+  connection: local
+
+  tasks:
+  - name: redirect the output
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt
+    register: redirect_output
+  - name: pirnt the redirect output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
