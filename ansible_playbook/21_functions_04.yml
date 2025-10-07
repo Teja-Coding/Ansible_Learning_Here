@@ -1,0 +1,13 @@
+- name: converting list into map
+  hosts: local
+  connection: local
+  #here is my list
+  listTags:
+  - key: Application
+    value: payments
+  - key: Environment
+    value: dev
+  tasks:
+  - name: here we can convert list into map
+    ansible.builtin.debug:
+      msg: "tag map: {{listTags | items2dist}}"
