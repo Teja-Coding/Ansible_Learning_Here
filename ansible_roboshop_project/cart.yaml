@@ -14,7 +14,7 @@
       state: present
   
   - name: create roboshop system cart
-    ansible.builtin.cart:
+    ansible.builtin.user:
       name: roboshop
       comment: Roboshop System cart
       system: true
